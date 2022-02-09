@@ -4,23 +4,36 @@ var filtrex = (function (exports) {
   function _typeof(obj) {
     "@babel/helpers - typeof";
 
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function (obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
-
-    return _typeof(obj);
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
   }
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+      writable: false
+    });
+    return Constructor;
   }
 
   function _defineProperty(obj, key, value) {
@@ -49,6 +62,9 @@ var filtrex = (function (exports) {
         writable: true,
         configurable: true
       }
+    });
+    Object.defineProperty(subClass, "prototype", {
+      writable: false
     });
     if (superClass) _setPrototypeOf(subClass, superClass);
   }
@@ -2217,7 +2233,7 @@ var filtrex = (function (exports) {
         }
       };
 
-      lexer.rules = [/^(?:\*)/, /^(?:\/)/, /^(?:-)/, /^(?:\+)/, /^(?:\^)/, /^(?:\()/, /^(?:\))/, /^(?:\,)/, /^(?:==)/, /^(?:\!=)/, /^(?:\~=)/, /^(?:>=)/, /^(?:<=)/, /^(?:<)/, /^(?:>)/, /^(?:not\s+in[^\w])/, /^(?:and[^\w])/, /^(?:or[^\w])/, /^(?:not[^\w])/, /^(?:in[^\w])/, /^(?:of[^\w])/, /^(?:if[^\w])/, /^(?:then[^\w])/, /^(?:else[^\w])/, /^(?:mod[^\w])/, /^(?:\s+)/, /^(?:[0-9]+(?:\.[0-9]+)?(?![0-9\.]))/, /^(?:[a-zA-Z$_][\.a-zA-Z0-9$_]*)/, /^(?:'(?:\\'|\\\\|[^'\\])*')/, /^(?:"(?:\\"|\\\\|[^"\\])*")/, /^(?:\%)/, /^(?:\?)/, /^(?::)/, /^(?:$)/];
+      lexer.rules = [/^(?:\*)/, /^(?:\/)/, /^(?:-)/, /^(?:\+)/, /^(?:\^)/, /^(?:\()/, /^(?:\))/, /^(?:\,)/, /^(?:==)/, /^(?:\!=)/, /^(?:\~=)/, /^(?:>=)/, /^(?:<=)/, /^(?:<)/, /^(?:>)/, /^(?:not\s+in[^\w])/, /^(?:and[^\w])/, /^(?:or[^\w])/, /^(?:not[^\w])/, /^(?:in[^\w])/, /^(?:of[^\w])/, /^(?:if[^\w])/, /^(?:then[^\w])/, /^(?:else[^\w])/, /^(?:mod[^\w])/, /^(?:\s+)/, /^(?:[0-9]+(?:\.[0-9]+)?(?![0-9\.]))/, /^(?:([a-zA-Z$_][\.a-zA-Z0-9$_]*|{[a-zA-Z$_][\.a-zA-Z0-9$_]*}))/, /^(?:'(?:\\'|\\\\|[^'\\])*')/, /^(?:"(?:\\"|\\\\|[^"\\])*")/, /^(?:\%)/, /^(?:\?)/, /^(?::)/, /^(?:$)/];
       lexer.conditions = {
         "INITIAL": {
           "rules": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33],
@@ -2267,7 +2283,7 @@ var filtrex = (function (exports) {
       return _this;
     }
 
-    return UnknownFunctionError;
+    return _createClass(UnknownFunctionError);
   }( /*#__PURE__*/_wrapNativeSuper(ReferenceError));
   /**
    * Runtime error – user attempted to access a property which
@@ -2298,7 +2314,7 @@ var filtrex = (function (exports) {
       return _this2;
     }
 
-    return UnknownPropertyError;
+    return _createClass(UnknownPropertyError);
   }( /*#__PURE__*/_wrapNativeSuper(ReferenceError));
   /**
    * Compile time error – you specified an option which
@@ -2327,7 +2343,7 @@ var filtrex = (function (exports) {
       return _this3;
     }
 
-    return UnknownOptionError;
+    return _createClass(UnknownOptionError);
   }( /*#__PURE__*/_wrapNativeSuper(TypeError));
   /**
    * Runtime error – user passed a different type than the one
@@ -2362,7 +2378,7 @@ var filtrex = (function (exports) {
       return _this4;
     }
 
-    return UnexpectedTypeError;
+    return _createClass(UnexpectedTypeError);
   }( /*#__PURE__*/_wrapNativeSuper(TypeError));
   /**
    * An internal error. This was not meant to happen, please report
@@ -2388,7 +2404,7 @@ var filtrex = (function (exports) {
       return _this5;
     }
 
-    return InternalError;
+    return _createClass(InternalError);
   }( /*#__PURE__*/_wrapNativeSuper(Error));
 
   /**

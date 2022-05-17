@@ -366,16 +366,14 @@ export function compileExpression(expression, options) {
     function nakedProp(name, obj, type) {
         if (hasOwnProperty(obj ?? {}, name))
             return obj[name]
-        return ''
-        // throw new UnknownPropertyError(name)
+        throw new UnknownPropertyError(name)
     }
 
     function safeGetter(obj) {
         return function get(name) {
             if (hasOwnProperty(obj ?? {}, name))
                 return obj[name]
-            return ''
-            // throw new UnknownPropertyError(name)
+            throw new UnknownPropertyError(name)
         }
     }
 

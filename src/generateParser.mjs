@@ -39,7 +39,7 @@ const grammar = {
             [_`\s+`,  ''], // skip whitespace
             [_`[0-9]+(?:\.[0-9]+)?(?![0-9\.])`, `return "Number";`], // 212.321
             // [_`([a-zA-Z$_][\.a-zA-Z0-9$_]*|{[a-zA-Z$_][\.a-zA-Z0-9$_()*]*})`,
-            [_`(abs|ceil|empty|exists|floor|log|log2|log10|max|min|round|sqrt|replace|{[a-zA-Z$_][\.a-zA-Z0-9$_()*]*})`,
+            [_`(abs|ceil|empty|exists|floor|log|log2|log10|max|min|round|sqrt|replace|number|default|toFixed|date|{[a-zA-Z$_][\.a-zA-Z0-9$_()*]*})`,
                 `yytext = JSON.stringify({
                     name: yytext,
                     type: 'unescaped'
